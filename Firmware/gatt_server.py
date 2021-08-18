@@ -29,21 +29,36 @@ class WeatherService(Service):
         return self.city_id
     
     def get_drive_len(self):
-        return 33
+        return self.drive_len
     def get_drive_time(self):
-        return 44
+        return self.drive_time
     def get_avg_force(self):
-        return 55
+        return self.avg_force
     def get_peaks_force(self):
-        return 66
+        return self.peak_force
     def get_drag_factor(self):
-        return 77
+        return self.drag_factor
     def get_ypr(self):
-        return "1;2;3"
+        return self.ypr
     def get_latlng(self):
-        return "67.3;21.1"
+        return self.lattlng
 
-    
+    def set_drive_len(self, drive_len):
+        self.drive_len = drive_len
+    def set_drive_time(self, drive_time):
+        self.drive_time = drive_time
+    def set_avg_force(self, avg_force):
+        self.avg_force = avg_force
+    def set_peak_force(self, peak_force):
+        self.peak_force = peak_force
+    def set_drag_factor(self, drag_factor):
+        self.drag_factor = drag_factor
+    def set_ypr(self, ypr):
+        self.ypr = ypr
+    def set_lattlng(self, lattlng):
+        self.lattlng = lattlng
+
+
     def set_city_id(self, city_id):
         self.city_id = city_id
 
@@ -54,7 +69,7 @@ class WeatherService(Service):
         self.weather_id = weather_id
 
     def get_degrees(self):
-        return self.degrees
+        return self.degrees#strokes
 
     def set_degrees(self, degrees):
         self.degrees = degrees
@@ -74,6 +89,7 @@ class WeatherCharacteristic(Characteristic):
         value = []
 
         degrees = self.service.get_degrees()
+        strokes=degrees
         weather_id = self.service.get_weather_id()
         city_id = self.service.get_city_id()
         d_len=self.service.get_drive_len()
@@ -83,7 +99,7 @@ class WeatherCharacteristic(Characteristic):
         drag_factor=self.service.get_drag_factor()
         ypr=self.service.get_ypr()
         latlng=self.service.get_latlng()
-        data = 'D=%s,W=%s,C=%s,L=%s,U=%s,A=%s,P=%s,T=%s,Y=%s,G=%s' % (degrees, weather_id, city_id,d_len,drive_time,avg_force,peak_force,drag_factor,ypr,latlng)
+        data = 'D=%s,W=%s,C=%s,L=%s,U=%s,A=%s,P=%s,T=%s,Y=%s,G=%s' % (strokes, weather_id, city_id,d_len,drive_time,avg_force,peak_force,drag_factor,ypr,latlng)
         print('Sending: ', data, flush=True)
 
         for c in data:

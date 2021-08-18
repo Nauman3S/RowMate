@@ -107,7 +107,9 @@ def shutdown():
     os.system("sudo shutdown -h now")
 
 ### commands
+tempV=0
 def updateWeather():
+    global tempV
     print('---', flush=True)
     print('Update weather', flush=True)
     data = getCurrentWeather()
@@ -120,6 +122,16 @@ def updateWeather():
 
     ble_app.services[WEATHER_SERVICE_INDEX].set_degrees(degrees)
     ble_app.services[WEATHER_SERVICE_INDEX].set_weather_id(weather_id)
+    ###test statements
+    ble_app.services[WEATHER_SERVICE_INDEX].set_drive_len(str(tempV+1))
+    ble_app.services[WEATHER_SERVICE_INDEX].set_drive_time(str(tempV+2))
+    ble_app.services[WEATHER_SERVICE_INDEX].set_avg_force(str(tempV+3))
+    ble_app.services[WEATHER_SERVICE_INDEX].set_peak_force(str(tempV+4))
+    ble_app.services[WEATHER_SERVICE_INDEX].set_drag_factor(str(tempV+5))
+    ble_app.services[WEATHER_SERVICE_INDEX].set_ypr(str(tempV+6))
+    ble_app.services[WEATHER_SERVICE_INDEX].set_lattlng(str(tempV+7))
+    tempV=tempV+1
+    
     updateNeopixelColor(degrees)
 
 def fetchIpAddress():
