@@ -27,7 +27,23 @@ class WeatherService(Service):
 
     def get_city_id(self):
         return self.city_id
+    
+    def get_drive_len(self):
+        return 33
+    def get_drive_time(self):
+        return 44
+    def get_avg_force(self):
+        return 55
+    def get_peaks_force(self):
+        return 66
+    def get_drag_factor(self):
+        return 77
+    def get_ypr(self):
+        return "1,2,3"
+    def get_latlng(self):
+        return "67.3,21.1"
 
+    
     def set_city_id(self, city_id):
         self.city_id = city_id
 
@@ -60,7 +76,14 @@ class WeatherCharacteristic(Characteristic):
         degrees = self.service.get_degrees()
         weather_id = self.service.get_weather_id()
         city_id = self.service.get_city_id()
-        data = 'D=%s,W=%s,C=%s' % (degrees, weather_id, city_id)
+        d_len=self.service.get_drive_len()
+        drive_time=self.service.get_drive_time()
+        avg_force=self.service.get_avg_force()
+        peak_force=self.service.get_peaks_force()
+        drag_factor=self.service.get_drag_factor()
+        ypr=self.service.get_ypr()
+        latlng=self.service.get_latlng()
+        data = 'D=%s,W=%s,C=%s,L=%s,U=%S,A=%s,P=%s,T=%s,Y=%s,G=%s' % (degrees, weather_id, city_id,d_len,drive_time,avg_force,peak_force,drag_factor,ypr,latlng)
         print('Sending: ', data, flush=True)
 
         for c in data:
