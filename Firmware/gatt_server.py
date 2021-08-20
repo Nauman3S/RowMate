@@ -24,6 +24,14 @@ class WeatherService(Service):
         self.add_characteristic(WeatherCharacteristic(self))
         self.add_characteristic(ResumeWeatherCharacteristic(self))
         self.add_characteristic(CityIdCharacteristic(self))
+        self.drive_len="0"
+        self.drive_time="0"
+        self.avg_force="0"
+        self.peak_force="0"
+        self.drag_factor="0"
+        self.ypr="0,0,0"
+        self.lattlng="0,0"
+        self.degrees="0"
 
     def get_city_id(self):
         return self.city_id

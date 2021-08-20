@@ -1,5 +1,8 @@
 # imports
 import os
+import threading                                                                                                      
+import signal
+import sys 
 import subprocess
 import time
 import board
@@ -9,6 +12,7 @@ from requests import get
 import json
 from gatt_server import BleApplication, WeatherStationAdvertisement, WeatherService, RgbColorService, SystemService
 from repeated_timer import RepeatedTimer
+from UIHandler import *
 
 ### params
 WEATHER_SERVICE_INDEX = 0
@@ -109,8 +113,9 @@ def shutdown():
 
 ### commands
 tempV=0
+#degreesV=None
 def updateWeather():
-    global tempV
+    global tempV,degreesV
     print('---', flush=True)
     print('Update weather', flush=True)
     #data = getCurrentWeather()
@@ -123,6 +128,7 @@ def updateWeather():
     weather_id = data[1]
     
     ble_app.services[WEATHER_SERVICE_INDEX].set_degrees(degrees)
+    
     ble_app.services[WEATHER_SERVICE_INDEX].set_weather_id(weather_id)
     ###test statements
     ble_app.services[WEATHER_SERVICE_INDEX].set_drive_len(str(tempV+1))
@@ -166,7 +172,24 @@ timer_system = RepeatedTimer(DELAY_DETECT_MANUAL_SHUTDOWN, shouldShutdown)
 try:
     print('GATT application running')
     fetchIpAddress()
-    ble_app.run()
+    myThread = threading.Thread(target=ble_app.run)
+    myThread.daemon = True
+    myThread.start()
+    #ble_app.run()
+    print("Configuring UI")
+    configUI()
+    print('running UI')
+    while 1:
+        totalTimeElapsed="Total TIME Elapsed"
+        strokesPM=ble_app.services[WEATHER_SERVICE_INDEX].get_degrees()
+        driveTime=ble_app.services[WEATHER_SERVICE_INDEX].get_drive_time()
+        avgForce=ble_app.services[WEATHER_SERVICE_INDEX].get_avg_force()
+        peakForce=ble_app.services[WEATHER_SERVICE_INDEX].get_peaks_force()
+        dragFactor=ble_app.services[WEATHER_SERVICE_INDEX].get_drag_factor()
+        ypr=ble_app.services[WEATHER_SERVICE_INDEX].get_ypr()
+        latlng=ble_app.services[WEATHER_SERVICE_INDEX].get_latlng()
+
+        mainUI(totalTimeElapsed,strokesPM,driveTime,avgForce,peakForce,dragFactor,ypr,latlng)
 except KeyboardInterrupt:
     ble_app.quit()
     pass

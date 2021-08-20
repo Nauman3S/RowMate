@@ -95,6 +95,7 @@ class Application(dbus.service.Object):
 
     def run(self):
         self.mainloop.run()
+        
 
     def quit(self):
         print("\nGATT application terminated")

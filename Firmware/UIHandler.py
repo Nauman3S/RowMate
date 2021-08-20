@@ -2,18 +2,10 @@
 
 #!/usr/bin/env python3
 
-"""
-ZetCode Tkinter tutorial
-
-In this script, we lay out images
-using absolute positioning.
-
-Author: Jan Bodnar
-Website: www.zetcode.com
-"""
-
+from os import SEEK_CUR, getlogin
+import time
 from PIL import Image, ImageTk
-from tkinter import Tk, BOTH, Canvas
+from tkinter import Tk, BOTH, Canvas, StringVar
 
 from tkinter.ttk import Frame, Label, Style
 from tkinter.ttk import *
@@ -24,9 +16,42 @@ class Example(Frame):
         super().__init__()
 
         self.initUI()
-
+    
+    def set_total_time_elapsed(self,v):
+        self.total_time_elapsed.set(v)
+    def set_strokes_PM(self,v):
+        self.strokes_PM.set(v)
+    def set_split_time(self,v):
+        self.Split_Time.set(v)
+    def set_total_meters(self,v):
+        self.Total_Meters.set(v)
+    def set_avg_split_time(self,v):
+        self.Average_Split_Time.set(v)
+    def set_split_meters(self,v):
+        self.Split_Meters.set(v)
+    def set_projected_distance(self,v):
+        self.Projected_Distance.set(v)
+    def set_latt_lng(self,v):
+        self.latt_lng.set(v)
 
     def initUI(self):
+        self.total_time_elapsed = StringVar()
+        self.strokes_PM=StringVar()
+        self.Split_Time=StringVar()
+        self.Total_Meters=StringVar()
+        self.Average_Split_Time=StringVar()
+        self.Split_Meters=StringVar()
+        self.Projected_Distance=StringVar()
+        self.latt_lng=StringVar()
+
+        self.total_time_elapsed.set("TotalTE")
+        self.strokes_PM.set("Strokes Per Minute")
+        self.Split_Time.set("Split time")
+        self.Total_Meters.set("Total Meters")
+        self.Average_Split_Time.set("Avergae Split Time")
+        self.Split_Meters.set("Split Meters")
+        self.Projected_Distance.set("Projected Meters at current pace")
+        self.latt_lng.set("Latt,Lng")
 
         self.master.title("Row Mate")
         self.pack(fill=BOTH, expand=1)
@@ -53,55 +78,78 @@ class Example(Frame):
 
         frame1 = Frame(self, width=500, height=60, style="BW.TLabel")
         frame1.place(x=0, y=80)
-        timeElapsed = Label(frame1, text="TTE", borderwidth=0,font=("Helvetica", 15), background="#171717",foreground="#fff")
+        timeElapsed = Label(frame1, textvariable=self.total_time_elapsed, borderwidth=0,font=("Helvetica", 15), background="#171717",foreground="#fff")
         timeElapsed.place(x=200,y=15)
 
         frame1_1 = Frame(self, width=250, height=60, style="BW.TLabel")
         frame1_1.place(x=510, y=80)
-        strokesPM = Label(frame1_1, text="S/m", borderwidth=0,font=("Helvetica", 15), background="#171717",foreground="#fff")
+        strokesPM = Label(frame1_1, textvariable=self.strokes_PM , borderwidth=0,font=("Helvetica", 15), background="#171717",foreground="#fff")
         strokesPM.place(x=80,y=15)
 
 
         frame2 = Frame(self, width=790, height=60, style="BW.TLabel")
         frame2.place(x=0, y=145)
-        SplitTime = Label(frame2, text="current pace", borderwidth=0,font=("Helvetica", 15), background="#171717",foreground="#fff")
+        SplitTime = Label(frame2, textvariable=self.Split_Time, borderwidth=0,font=("Helvetica", 15), background="#171717",foreground="#fff")
         SplitTime.place(x=300,y=15)
 
 
         frame3 = Frame(self, width=500, height=60, style="BW.TLabel")
         frame3.place(x=0, y=210)
-        TotalMeters = Label(frame3, text="Total m", borderwidth=0,font=("Helvetica", 15), background="#171717",foreground="#fff")
+        TotalMeters = Label(frame3, textvariable=self.Total_Meters, borderwidth=0,font=("Helvetica", 15), background="#171717",foreground="#fff")
         TotalMeters.place(x=200,y=15)
         
 
         frame3_1 = Frame(self, width=250, height=60, style="BW.TLabel")
         frame3_1.place(x=510, y=210)
+        LattLng = Label(frame3_1, textvariable=self.latt_lng, borderwidth=0,font=("Helvetica", 15), background="#171717",foreground="#fff")
+        LattLng.place(x=80,y=15)
+
 
         frame4 = Frame(self, width=790, height=60, style="BW.TLabel")
         frame4.place(x=0, y=275)
-        AverageSplitTime = Label(frame4, text="Avg Pace", borderwidth=0,font=("Helvetica", 15), background="#171717",foreground="#fff")
+        AverageSplitTime = Label(frame4, textvariable=self.Average_Split_Time, borderwidth=0,font=("Helvetica", 15), background="#171717",foreground="#fff")
         AverageSplitTime.place(x=300,y=15)
 
         frame5 = Frame(self, width=790, height=60, style="BW.TLabel")
         frame5.place(x=0, y=340)
-        SplitMeters = Label(frame5, text="Split meters", borderwidth=0,font=("Helvetica", 15), background="#171717",foreground="#fff")
+        SplitMeters = Label(frame5, textvariable=self.Split_Meters, borderwidth=0,font=("Helvetica", 15), background="#171717",foreground="#fff")
         SplitMeters.place(x=300,y=15)
 
         frame6 = Frame(self, width=790, height=60, style="BW.TLabel")
         frame6.place(x=0, y=405)
-        ProjectedDistance = Label(frame6, text="ProjectedDistance at current pace", borderwidth=0,font=("Helvetica", 15), background="#171717",foreground="#fff")
+        ProjectedDistance = Label(frame6, textvariable=self.Projected_Distance, borderwidth=0,font=("Helvetica", 15), background="#171717",foreground="#fff")
         ProjectedDistance.place(x=300,y=15)
        
-
-
-def main():
-
+root = None
+app= None
+def configUI():
+    global root,app
     root = Tk()
     root.geometry("800x480+400+240")
     app = Example()
+def mainUI(totalTimeElapsed, strokespm, splittime,totalmeters,avgsplittime,splitmeters,projecteddistance,latlng):
     
-    root.mainloop()
+    global root, app
+    
 
+    #root.mainloop()
 
-if __name__ == '__main__':
-    main()
+    try:
+        root.update()
+        app.set_total_time_elapsed(str(totalTimeElapsed))
+        app.set_strokes_PM(str(strokespm))
+        app.set_split_time(str(splittime))
+        app.set_total_meters(str(totalmeters))
+        app.set_avg_split_time(str(avgsplittime))
+        app.set_split_meters(str(splitmeters))
+        app.set_projected_distance(str(projecteddistance))
+        app.set_latt_lng(str(latlng))
+    except Exception as e:
+        print(e)
+        
+        root.quit()
+        root.update()
+        exit(0)
+
+# if __name__ == '__main__':
+#     mainUI()
