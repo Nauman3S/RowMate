@@ -34,7 +34,7 @@ class Example(Frame):
         edit_labelframe_color_style.theme_use('clam') #only theme to handle bordercolor for labelframe
     
 
-        Style().configure("TFrame", background="#171717")
+        Style().configure("TFrame", background="#171717", foreground="white")
         Style().configure("BW.TLabel", background="#171717", foreground="red",relief="solid",borderwidth=3,highlightbackground = "red", highlightcolor= "red", highlightthickness=3)
 
         bard = Image.open("rowmateLogo.png")
@@ -53,28 +53,44 @@ class Example(Frame):
 
         frame1 = Frame(self, width=500, height=60, style="BW.TLabel")
         frame1.place(x=0, y=80)
+        timeElapsed = Label(frame1, text="TTE", borderwidth=0,font=("Helvetica", 15), background="#171717",foreground="#fff")
+        timeElapsed.place(x=200,y=15)
 
         frame1_1 = Frame(self, width=250, height=60, style="BW.TLabel")
         frame1_1.place(x=510, y=80)
+        strokesPM = Label(frame1_1, text="S/m", borderwidth=0,font=("Helvetica", 15), background="#171717",foreground="#fff")
+        strokesPM.place(x=80,y=15)
+
 
         frame2 = Frame(self, width=790, height=60, style="BW.TLabel")
         frame2.place(x=0, y=145)
+        SplitTime = Label(frame2, text="current pace", borderwidth=0,font=("Helvetica", 15), background="#171717",foreground="#fff")
+        SplitTime.place(x=300,y=15)
 
 
         frame3 = Frame(self, width=500, height=60, style="BW.TLabel")
         frame3.place(x=0, y=210)
+        TotalMeters = Label(frame3, text="Total m", borderwidth=0,font=("Helvetica", 15), background="#171717",foreground="#fff")
+        TotalMeters.place(x=200,y=15)
+        
 
         frame3_1 = Frame(self, width=250, height=60, style="BW.TLabel")
         frame3_1.place(x=510, y=210)
 
         frame4 = Frame(self, width=790, height=60, style="BW.TLabel")
         frame4.place(x=0, y=275)
+        AverageSplitTime = Label(frame4, text="Avg Pace", borderwidth=0,font=("Helvetica", 15), background="#171717",foreground="#fff")
+        AverageSplitTime.place(x=300,y=15)
 
         frame5 = Frame(self, width=790, height=60, style="BW.TLabel")
         frame5.place(x=0, y=340)
+        SplitMeters = Label(frame5, text="Split meters", borderwidth=0,font=("Helvetica", 15), background="#171717",foreground="#fff")
+        SplitMeters.place(x=300,y=15)
 
         frame6 = Frame(self, width=790, height=60, style="BW.TLabel")
         frame6.place(x=0, y=405)
+        ProjectedDistance = Label(frame6, text="ProjectedDistance at current pace", borderwidth=0,font=("Helvetica", 15), background="#171717",foreground="#fff")
+        ProjectedDistance.place(x=300,y=15)
        
 
 
