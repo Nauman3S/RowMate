@@ -205,7 +205,9 @@ class CityIdCharacteristic(Characteristic):
         value = []
 
         val = self.service.get_city_id()
+        print("val,",val)
         value.append(dbus.Byte(val.encode()))
+        print("value,",value)
 
         return value
 
@@ -224,6 +226,7 @@ class CityIdDescriptor(Descriptor):
         desc = self.CITY_ID_DESCRIPTOR_VALUE
 
         for c in desc:
+            print("c",c)
             value.append(dbus.Byte(c.encode()))
 
         return value

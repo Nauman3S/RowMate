@@ -1,6 +1,7 @@
 # imports
 import os
 import subprocess
+import time
 import board
 import digitalio
 import neopixel
@@ -112,14 +113,15 @@ def updateWeather():
     global tempV
     print('---', flush=True)
     print('Update weather', flush=True)
-    data = getCurrentWeather()
+    #data = getCurrentWeather()
+    data = [12,11]
     if not data:
         print('Error: weather data is None', flush=True)
         return
 
     degrees = data[0]
     weather_id = data[1]
-
+    
     ble_app.services[WEATHER_SERVICE_INDEX].set_degrees(degrees)
     ble_app.services[WEATHER_SERVICE_INDEX].set_weather_id(weather_id)
     ###test statements
@@ -131,7 +133,7 @@ def updateWeather():
     ble_app.services[WEATHER_SERVICE_INDEX].set_ypr(str(tempV+6))
     ble_app.services[WEATHER_SERVICE_INDEX].set_lattlng(str(tempV+7))
     tempV=tempV+1
-    
+    time.sleep(1)
     updateNeopixelColor(degrees)
 
 def fetchIpAddress():
