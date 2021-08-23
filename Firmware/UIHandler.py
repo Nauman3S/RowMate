@@ -6,7 +6,7 @@ from os import SEEK_CUR, getlogin
 import time
 from PIL import Image, ImageTk
 from tkinter import BitmapImage, Tk, BOTH, Canvas, StringVar, Toplevel
-
+import subprocess
 from tkinter.ttk import Frame, Label, Style
 from tkinter.ttk import *
 
@@ -57,6 +57,7 @@ class Example(Frame):
         self.latt_lng.set("Latt,Lng")
 
         self.master.title("Row Mate")
+        # self.attributes('-zoomed', True) 
         self.pack(fill=BOTH, expand=1)
         edit_labelframe_color_style = Style()
         edit_labelframe_color_style.theme_use('clam') #only theme to handle bordercolor for labelframe
@@ -145,31 +146,38 @@ class Example(Frame):
     def exitQRWindow(self):
         self.qrw.destroy()
     def QRWindow(self):
-        self.qrw = Toplevel(self)
-        self.qrw.title("Connect to the RowMate App")
-        self.qrw.geometry("800x480+400+240")
-        self.qrw.configure(background='#171717')
-        QRIMG = Image.open("qr.png")
-        #bard = bard.resize((100, 100), Image.ANTIALIAS)
-        qrJ = ImageTk.PhotoImage(QRIMG)
-        qrCD = Label(self.qrw, image=qrJ, borderwidth=0)
-        qrCD.image = qrJ
-        qrCD.place(x=50, y=50)
+        cmd="(sudo python3 QRHandler.py) "
+        result = subprocess.run(cmd,shell=True, stdout=subprocess.PIPE)
+        g=result.stdout
+        m=g.decode('utf-8')
+        k=m.split(' ')
+        print(k)
+        # self.qrw = Toplevel(self)
+        # self.qrw.title("Connect to the RowMate App")
+        # self.qrw.geometry("800x480+400+240")
+        # self.qrw.configure(background='#171717')
+        # QRIMG = Image.open("qr.png")
+        # #bard = bard.resize((100, 100), Image.ANTIALIAS)
+        # qrJ = ImageTk.PhotoImage(QRIMG)
+        # qrCD = Label(self.qrw, image=qrJ, borderwidth=0)
+        # qrCD.image = qrJ
+        # qrCD.place(x=50, y=50)
 
-        notiF = Label(self.qrw, text="Scan this QR with RowMate App", borderwidth=0,font=("Helvetica", 12), background="#171717",foreground="#fff")
-        notiF.place(x=500,y=100)
+        # notiF = Label(self.qrw, text="Scan this QR with RowMate App", borderwidth=0,font=("Helvetica", 12), background="#171717",foreground="#fff")
+        # notiF.place(x=500,y=100)
 
 
-        btn = Button(self.qrw,
-             text ="<-Back",
-             command = self.exitQRWindow)
-        btn.place(x=50, y=400)
+        # btn = Button(self.qrw,
+        #      text ="<-Back",
+        #      command = self.exitQRWindow)
+        # btn.place(x=50, y=400)
 root = None
 app= None
 def configUI():
     global root,app
     root = Tk()
-    root.geometry("800x480+400+240")
+    # root.geometry("800x480+0+0")
+    root.attributes('-zoomed', True) 
     app = Example()
 widgetsPos=[[0,80],[510,80],[0,145],[0,210],[510,210],[0,275],[0,340],[0,405],[470,415]]
 # currPos=0

@@ -69,7 +69,7 @@ A step by step series that covers how to get the Firmware and App running
 
 * ![R2](artwork/r2_2.jpg)
 
-#### Configuring Raspberry Pi
+### Configuring Raspberry Pi
   1.  Copy Firmware folder to the desktop of your Raspberry Pi, open the terminal of your Raspberry Pi and execute the following commands
 
   - ```sudo apt-get update```
@@ -89,7 +89,15 @@ A step by step series that covers how to get the Firmware and App running
 
 ```diff
   + make sure that the BLE of raspeberry pi is turned on. Pairing is not required.
+  + Please note that the program will auto adjust itself to the screen size of HDMI Screen
 ```
+
+### Screenshots of RowMate UI
+* Below are the screenshots of RowMate UI running on the Raspberry Pi and being displayed on a HDMI Screen.
+
+![FWS1](artwork/fws1.png)
+![FWS2](artwork/fws2.png)
+
 ## ⛏️ Testing <a name = "test"></a>
 
 1.  The Firmware can be tested on Raspberry Pi 3B, 3B+ or 4B with the following modifications
@@ -107,6 +115,20 @@ A step by step series that covers how to get the Firmware and App running
 
 
 ## 📱 Smartphone App <a name = "App"></a>
+
+* Compiled App is availble in the following directory of this repo
+
+`App/RowMate/RowMateApp/build/app/outputs/apk/release/`
+
+### Screenshots of App
+
+* Here are some screenshots of the RowMate smartphone app
+
+![SCR1](artwork/scr1.jpg)
+![SCR2](artwork/scr2.jpg)
+![SCR3](artwork/scr3.jpg)
+![SCR4](artwork/scr4.jpg)
+
 
 
 ## ⛏️ Built Using <a name = "built_using"></a>
