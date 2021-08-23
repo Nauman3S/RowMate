@@ -1,75 +1,119 @@
-# RowMate
+<p align="center">
+  <a href="" rel="noopener">
+ <img width=200px height=200px src="artwork/rowmateLogo0.png" alt="Project logo"></a>
+</p>
 
-## Pre Requirements
- 
- The following should be installed on your Raspberry Pi
- 
-  <!-- - AVR-GCC
-  - AVRDUDE
-  - avr-libc -->
+<h3 align="center">RowMate</h3>
 
-### Installing Pre-Reqs on Raspberry Pi
+<div align="center">
 
-  On Raspberry Pi terminal execute the following commands
+[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
+
+</div>
+
+---
+
+
+<p align="center"> RowMate
+    <br> 
+</p>
+
+## 📝 Table of Contents
+
+- [About](#about)
+- [Getting Started](#getting_started)
+- [Prerequisites](#deployment)
+- [Installation and Config](#Installation_and_Config)
+- [Test](#test)
+- [Circuit](#circuit)
+- [Smartphone App](#app)
+- [Built Using](#built_using)
+- [Authors](#authors)
+
+## 🧐 About <a name = "about"></a>
+
+This repo contains circuit, firmware, app and backend for RowMate Project.
+
+## 🏁 Getting Started <a name = "getting_started"></a>
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+
+### Prerequisites <a name = "Prerequisites"></a>
+
+What things you need to install the software and how to install them.
+
+```
+- Android Smartphone
+- Raspberry Pi Model 3B, 3B+, 4B or CM4
+```
+
+## Installation and Configuration <a name = "Installation_and_Config"></a>
+
+A step by step series that covers how to get the Firmware and App running
+
+### Raspberry Pi Firmware Pre-Reqs
+
+1.  Download and install the latest Raspberry Pi OS Desktop image to your SD card
+2.  Open the terminal and execute the following command
+    ```sudo raspi-config```
+3. Then follow the following pictures to enable I2C bus on you raspberry pi
+
+* ![R1](artwork/r1.png)
+* ![R2](artwork/r2.png)
+* ![R3](artwork/r3.png)
+* ![R4](artwork/r4.png)
+* ![R5](artwork/r5.png)
+
+* Then do the same for Serial(UART)
+
+* ![R2](artwork/r2_2.jpg)
+
+#### Configuring Raspberry Pi
+  1.  Copy Firmware folder to the desktop of your Raspberry Pi, open the terminal of your Raspberry Pi and execute the following commands
+
   - ```sudo apt-get update```
   - ```sudo apt-get upgrade```
+  - ```sudo apt install python3-pip```
   - ```sudo pip3 install qrcode```
   - ```sudo pip3 install adafruit-circuitpython-lis3dh```
   - ```sudo pip3 install adafruit-circuitpython-bno055```
   - ```sudo pip3 install adafruit-circuitpython-gps```
+  - ```cd ~/Desktop/Firmware```
+  - ```sudo chmod a+rx starter.sh```
+  - ```sudo chmod a+rx getControllerID.sh```
+
+2.  To run the program just double click on starter.sh file
+  1.  or execute `python3 /home/pi/Desktop/Firmware/Firmware.py`
 
 
-### Setup
+```diff
+  + make sure that the BLE of raspeberry pi is turned on. Pairing is not required.
+```
+## ⛏️ Testing <a name = "test"></a>
 
-  <!-- 1. Open terminal in the atmega2560FW folder and execute `make clean`
-  2. Open makefile, replace P=COM1 to the COM port of your arduino mega and save the file
-    1. Compile it with `make all`
-  3. Upload it to your Arduino with `make program` -->
+1.  The Firmware can be tested on Raspberry Pi 3B, 3B+ or 4B with the following modifications
+  1.  In btnHandler.py file change the GPIOs to the correct GPIOs based on the GPIOs pinout given in the Circuit Diagram section below.
 
-### Running the Program
-<!-- You should have Arduino IDE Installed
+## 🔌 Circuit Diagram <a name = "circuit"></a>
 
-  1.  Add ESP32 Board to your Arduino IDE
-    1. In your Arduino IDE, go to File> Preferences
-        Installing ESP32 Add-on in Arduino IDE Windows, Mac OS X, Linux open preferences
-    2. Enter ```https://dl.espressif.com/dl/package_esp32_index.json``` into the “Additional Board Manager URLs” field then, click the “OK” button:
-    Note: if you already have the ESP8266 boards URL, you can separate the URLs with a comma as follows:
-    ```https://dl.espressif.com/dl/package_esp32_index.json,
-      http://arduino.esp8266.com/stable/package_esp8266com_index.json```
-    3. Open the Boards Manager. Go to Tools > Board > Boards Manager…
-    4. Search for ESP32 and press install button for the “ESP32 by Espressif Systems“:
-    5. That’s it. It should be installed after a few seconds.
+* CM4 GPIOs Pinout
 
-  2.  Now copy the contents of the libs folder to the libraries directory of your Arduino
-    1. If you are using windows, the libraries directory will be Documents/Arduino/libraries
-  3.  Select ESP32 Dev Kit from Tools->Board->ESP32 Dev Kit
-  4.  Select the correct port from Tools->Port
-  5.  Then in ESP32FW.ino file, on line number 13 and 14, put your WiFi creds
-  6.  Upload the Code to your ESP32
+![GPIOsCM4](Circuit/pi4j-rpi-cm4-pinout-small.png)
 
-  ```diff
-  + broker used is borker.hivemq.com
-  + vending can be done by publishing an ammount to mdb/invoke topic
-  ```
-  Note: for more details, you can see MQTTHandler.h file
- -->
+* RPi 3,4 GPIOs Pinout(for prototype)
+
+![GPIOsRPi](Circuit/rpi34.jpg)
 
 
+## 📱 Smartphone App <a name = "App"></a>
 
-## Circuit Diagram
-<!-- Short Wire A and Wire B to start the MDB communication or put an on/off button
-![GitHub Logo](CircuitQ_bb.png) -->
 
-<!-- The parts used in this circuit are:
+## ⛏️ Built Using <a name = "built_using"></a>
 
-* Optocoupler __OHPC 817C F919G__
-* * [Datasheet](https://www.farnell.com/datasheets/73758.pdf)
-* Schimitt Trigger Hex Inverter __PHILIPS 74HC14N B9784PS Hnn9840 E__
-* * [Datasheet](https://datasheet.octopart.com/74HC14N-Philips-datasheet-7274161.pdf)
-* Diode __1N4007 MIC AXIAL SILASTIC GUARD JUNCTION STANDARD RECTIFIER__
-* * [Datasheet](https://rdd-tech.com/sites/default/files/attachment/1N4007%20MIC.pdf)
-* Resistor 330 ohms
-* Arduino Mega 2560
-* ESP32 Dev Kit
- -->
-## Using RowMate App
+- [Python3](https://www.python.org/) - Raspberry Pi FW
+- [Flutter](https://flutter.dev/) - Cross-Platform Smartphone App Development Framework
+
+## ✍️ Authors <a name = "authors"></a>
+
+- [@Nauman3S](https://github.com/Nauman3S) - Development and Deployment

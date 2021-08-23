@@ -148,7 +148,7 @@ class Example(Frame):
         self.qrw = Toplevel(self)
         self.qrw.title("Connect to the RowMate App")
         self.qrw.geometry("800x480+400+240")
-        
+        self.qrw.configure(background='#171717')
         QRIMG = Image.open("qr.png")
         #bard = bard.resize((100, 100), Image.ANTIALIAS)
         qrJ = ImageTk.PhotoImage(QRIMG)
