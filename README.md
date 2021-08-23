@@ -14,6 +14,9 @@
   - ```sudo apt-get update```
   - ```sudo apt-get upgrade```
   - ```sudo pip3 install qrcode```
+  - ```sudo pip3 install adafruit-circuitpython-lis3dh```
+  - ```sudo pip3 install adafruit-circuitpython-bno055```
+  - ```sudo pip3 install adafruit-circuitpython-gps```
 
 
 ### Setup

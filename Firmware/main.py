@@ -15,6 +15,8 @@ from gatt_server import BleApplication, WeatherStationAdvertisement, WeatherServ
 from repeated_timer import RepeatedTimer
 from UIHandler import *
 from btnHandler import *
+from IMUHandler import *
+from GPSHandler import *
 import qrcode
 
 ### params
@@ -157,8 +159,8 @@ def updateWeather():
     ble_app.services[WEATHER_SERVICE_INDEX].set_avg_force(str(tempV+3))
     ble_app.services[WEATHER_SERVICE_INDEX].set_peak_force(str(tempV+4))
     ble_app.services[WEATHER_SERVICE_INDEX].set_drag_factor(str(tempV+5))
-    ble_app.services[WEATHER_SERVICE_INDEX].set_ypr(str(tempV+6))
-    ble_app.services[WEATHER_SERVICE_INDEX].set_lattlng(str(tempV+7))
+    ble_app.services[WEATHER_SERVICE_INDEX].set_ypr(str(getYPR()))
+    ble_app.services[WEATHER_SERVICE_INDEX].set_lattlng(str(getGPSCords()))
     tempV=tempV+1
     #time.sleep(0.4)
     #updateNeopixelColor(degrees)
@@ -206,13 +208,16 @@ try:
     img.save(f'qr.png')
     setQRCode(contID)
     print('running UI')
+    lastTime = time.monotonic()
     while 1:
-        totalTimeElapsed="Total TIME Elapsed"
-        strokesPM=ble_app.services[WEATHER_SERVICE_INDEX].get_degrees()
-        driveTime=ble_app.services[WEATHER_SERVICE_INDEX].get_drive_time()
-        avgForce=ble_app.services[WEATHER_SERVICE_INDEX].get_avg_force()
-        peakForce=ble_app.services[WEATHER_SERVICE_INDEX].get_peaks_force()
-        dragFactor=ble_app.services[WEATHER_SERVICE_INDEX].get_drag_factor()
+        current = time.monotonic()
+
+        totalTimeElapsed="Total Time Elapsed "+str(format(current-lastTime, ".4f"))+str(" secs")
+        strokesPM=str(ble_app.services[WEATHER_SERVICE_INDEX].get_degrees())+" Strokes/minute"
+        driveTime=str(ble_app.services[WEATHER_SERVICE_INDEX].get_drive_time())+ " Drive Time"
+        avgForce=str(ble_app.services[WEATHER_SERVICE_INDEX].get_avg_force())+ " Avg Force"
+        peakForce=str(ble_app.services[WEATHER_SERVICE_INDEX].get_peaks_force())+ " Peak Force"
+        dragFactor=str(ble_app.services[WEATHER_SERVICE_INDEX].get_drag_factor()) + " Drag Factor"
         ypr=ble_app.services[WEATHER_SERVICE_INDEX].get_ypr()
         latlng=ble_app.services[WEATHER_SERVICE_INDEX].get_latlng()
 

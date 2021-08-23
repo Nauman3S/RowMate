@@ -91,7 +91,7 @@ class Example(Frame):
         frame1 = Frame(self, width=500, height=60, style="BW.TLabel")
         frame1.place(x=0, y=80)
         timeElapsed = Label(frame1, textvariable=self.total_time_elapsed, borderwidth=0,font=("Helvetica", 15), background="#171717",foreground="#fff")
-        timeElapsed.place(x=200,y=15)
+        timeElapsed.place(x=140,y=15)
         
 
         frame1_1 = Frame(self, width=250, height=60, style="BW.TLabel")
@@ -157,13 +157,13 @@ class Example(Frame):
         qrCD.place(x=50, y=50)
 
         notiF = Label(self.qrw, text="Scan this QR with RowMate App", borderwidth=0,font=("Helvetica", 12), background="#171717",foreground="#fff")
-        notiF.place(x=250,y=100)
+        notiF.place(x=500,y=100)
 
 
         btn = Button(self.qrw,
              text ="<-Back",
              command = self.exitQRWindow)
-        btn.place(x=50, y=200)
+        btn.place(x=50, y=400)
 root = None
 app= None
 def configUI():
