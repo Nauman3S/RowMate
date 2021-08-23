@@ -5,10 +5,11 @@
 from os import SEEK_CUR, getlogin
 import time
 from PIL import Image, ImageTk
-from tkinter import Tk, BOTH, Canvas, StringVar
+from tkinter import BitmapImage, Tk, BOTH, Canvas, StringVar, Toplevel
 
 from tkinter.ttk import Frame, Label, Style
 from tkinter.ttk import *
+
 
 class Example(Frame):
 
@@ -33,7 +34,9 @@ class Example(Frame):
         self.Projected_Distance.set(v)
     def set_latt_lng(self,v):
         self.latt_lng.set(v)
-
+    def movePointer(self,xy):
+        self.labelpointer.place(x=xy[0], y=xy[1])
+        self.labelpointer.lift()
     def initUI(self):
         self.total_time_elapsed = StringVar()
         self.strokes_PM=StringVar()
@@ -61,6 +64,15 @@ class Example(Frame):
 
         Style().configure("TFrame", background="#171717", foreground="white")
         Style().configure("BW.TLabel", background="#171717", foreground="red",relief="solid",borderwidth=3,highlightbackground = "red", highlightcolor= "red", highlightthickness=3)
+        
+        self.pointer=Image.open("pointer.png")
+        self.pointer = self.pointer.resize((30, 30), Image.ANTIALIAS)
+        self.pointerjov = ImageTk.PhotoImage(self.pointer)
+        self.labelpointer = Label(self, image=self.pointerjov, borderwidth=0)
+        self.labelpointer.image = self.pointerjov
+        self.labelpointer.place(x=300, y=80)
+        self.labelpointer.lift()
+
 
         bard = Image.open("rowmateLogo.png")
         bard = bard.resize((100, 100), Image.ANTIALIAS)
@@ -80,6 +92,7 @@ class Example(Frame):
         frame1.place(x=0, y=80)
         timeElapsed = Label(frame1, textvariable=self.total_time_elapsed, borderwidth=0,font=("Helvetica", 15), background="#171717",foreground="#fff")
         timeElapsed.place(x=200,y=15)
+        
 
         frame1_1 = Frame(self, width=250, height=60, style="BW.TLabel")
         frame1_1.place(x=510, y=80)
@@ -119,7 +132,38 @@ class Example(Frame):
         frame6.place(x=0, y=405)
         ProjectedDistance = Label(frame6, textvariable=self.Projected_Distance, borderwidth=0,font=("Helvetica", 15), background="#171717",foreground="#fff")
         ProjectedDistance.place(x=300,y=15)
-       
+        self.labelpointer.lift()
+
+        btn = Button(frame6,
+             text ="Connect to App",
+             command = self.QRWindow)
+        btn.place(x=500, y=15)
+    def setQRCode(self,v):
+        self.qrcodev=v
+    def getQRCode(self):
+        return self.qrcodev
+    def exitQRWindow(self):
+        self.qrw.destroy()
+    def QRWindow(self):
+        self.qrw = Toplevel(self)
+        self.qrw.title("Connect to the RowMate App")
+        self.qrw.geometry("800x480+400+240")
+        
+        QRIMG = Image.open("qr.png")
+        #bard = bard.resize((100, 100), Image.ANTIALIAS)
+        qrJ = ImageTk.PhotoImage(QRIMG)
+        qrCD = Label(self.qrw, image=qrJ, borderwidth=0)
+        qrCD.image = qrJ
+        qrCD.place(x=50, y=50)
+
+        notiF = Label(self.qrw, text="Scan this QR with RowMate App", borderwidth=0,font=("Helvetica", 12), background="#171717",foreground="#fff")
+        notiF.place(x=250,y=100)
+
+
+        btn = Button(self.qrw,
+             text ="<-Back",
+             command = self.exitQRWindow)
+        btn.place(x=50, y=200)
 root = None
 app= None
 def configUI():
@@ -127,7 +171,24 @@ def configUI():
     root = Tk()
     root.geometry("800x480+400+240")
     app = Example()
-def mainUI(totalTimeElapsed, strokespm, splittime,totalmeters,avgsplittime,splitmeters,projecteddistance,latlng):
+widgetsPos=[[0,80],[510,80],[0,145],[0,210],[510,210],[0,275],[0,340],[0,405],[470,415]]
+# currPos=0
+# def moveCursor(frV):
+#     global currPos,widgetsPos
+#     if(frV>=0 and frV<=7):
+#         currPos=frV
+#         return widgetsPos[frV]
+        
+def setQRCode(value):
+    global app
+    app.setQRCode(value)
+# def quitQRWindow():
+#     global app
+#     app.exitQRWindow()
+
+
+
+def mainUI(totalTimeElapsed, strokespm, splittime,totalmeters,avgsplittime,splitmeters,projecteddistance,latlng,curpos):
     
     global root, app
     
@@ -144,6 +205,10 @@ def mainUI(totalTimeElapsed, strokespm, splittime,totalmeters,avgsplittime,split
         app.set_split_meters(str(splitmeters))
         app.set_projected_distance(str(projecteddistance))
         app.set_latt_lng(str(latlng))
+        app.movePointer(curpos)
+        #print('ep',enterpoll)
+        
+  
     except Exception as e:
         print(e)
         

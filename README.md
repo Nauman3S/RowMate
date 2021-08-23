@@ -10,10 +10,10 @@
 
 ### Installing Pre-Reqs on Raspberry Pi
 
-  <!-- On Ubuntu or any Debian based Linux distro execute the following commands
-  - ```sudo apt-get install -y gcc-avr```
-  - ```sudo apt-get install -y avrdude```
-  - ```sudo apt-get install avr-libc``` -->
+  On Raspberry Pi terminal execute the following commands
+  - ```sudo apt-get update```
+  - ```sudo apt-get upgrade```
+  - ```sudo pip3 install qrcode```
 
 
 ### Setup

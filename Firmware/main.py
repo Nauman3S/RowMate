@@ -1,6 +1,7 @@
 # imports
 import os
-import threading                                                                                                      
+import threading       
+import subprocess                                                                                               
 import signal
 import sys 
 import subprocess
@@ -13,13 +14,15 @@ import json
 from gatt_server import BleApplication, WeatherStationAdvertisement, WeatherService, RgbColorService, SystemService
 from repeated_timer import RepeatedTimer
 from UIHandler import *
+from btnHandler import *
+import qrcode
 
 ### params
 WEATHER_SERVICE_INDEX = 0
 RGB_COLOR_SERVICE_INDEX = 1
 SYSTEM_SERVICE_INDEX = 2
 
-DELAY_WEATHER_REQUEST = 5.0 # seconds
+DELAY_WEATHER_REQUEST = 1.0 # seconds
 DELAY_DETECT_MANUAL_SHUTDOWN = 1.0
 
 timer_update = None
@@ -31,11 +34,11 @@ units = 'units=metric'
 appid = 'appid=c6206d175419aecde9ee5a6c233a3830'
 url = '%s?%s&%s&%s' % (base, city, units, appid)
 
-shutdown_pin = board.D4
-shutdown_button = digitalio.DigitalInOut(shutdown_pin)
-shutdown_button.direction = digitalio.Direction.INPUT
-shutdown_button.pull = digitalio.Pull.UP
-system_stopped = False
+# shutdown_pin = board.D4
+# shutdown_button = digitalio.DigitalInOut(shutdown_pin)
+# shutdown_button.direction = digitalio.Direction.INPUT
+# shutdown_button.pull = digitalio.Pull.UP
+# system_stopped = False
 
 pixels_pin = board.D18
 pixels_count = 3
@@ -46,6 +49,24 @@ pixels = neopixel.NeoPixel(pixels_pin,
                 auto_write = False,
                 pixel_order = pixels_order)
 
+def getControllerID():
+    #cmd="(echo -e 'show\nquit' | sudo bluetoothctl | grep Controller)"
+    cmd="./getControllerID.sh"
+    result = subprocess.run(cmd,shell=True, stdout=subprocess.PIPE)
+    g=result.stdout
+    m=g.decode('utf-8')
+    k=m.split(' ')
+    print(k)
+    ControllerAddress=k[2]
+    print(ControllerAddress)
+    return ControllerAddress
+    #time.sleep(0.5)
+    # mp=os.system(cmd)
+    # print(mp)
+    #print(open('tmp', 'r').read())
+    
+    
+    
 ### weather requests
 def getCurrentWeather():
     if system_stopped:
@@ -106,18 +127,18 @@ def stop():
     if not timer_system is None and timer_system.isRunning():
         timer_system.stop()
 
-def shutdown():
-    stop()
-    print('Shutdown system.')
-    os.system("sudo shutdown -h now")
+# def shutdown():
+#     stop()
+#     print('Shutdown system.')
+#     os.system("sudo shutdown -h now")
 
 ### commands
 tempV=0
 #degreesV=None
 def updateWeather():
     global tempV,degreesV
-    print('---', flush=True)
-    print('Update weather', flush=True)
+    #print('---', flush=True)
+    #print('Update weather', flush=True)
     #data = getCurrentWeather()
     data = [12,11]
     if not data:
@@ -139,8 +160,8 @@ def updateWeather():
     ble_app.services[WEATHER_SERVICE_INDEX].set_ypr(str(tempV+6))
     ble_app.services[WEATHER_SERVICE_INDEX].set_lattlng(str(tempV+7))
     tempV=tempV+1
-    time.sleep(1)
-    updateNeopixelColor(degrees)
+    #time.sleep(0.4)
+    #updateNeopixelColor(degrees)
 
 def fetchIpAddress():
     command = 'hostname -I'
@@ -151,10 +172,10 @@ def fetchIpAddress():
     print ("GATT application ip address %s" % ip_address, flush=True)
     ble_app.services[SYSTEM_SERVICE_INDEX].set_ip_address(ip_address)
 
-def shouldShutdown():
-    if not shutdown_button.value:
-        print('Should shutdown system..', flush=True)
-        shutdown()
+# def shouldShutdown():
+#     if not shutdown_button.value:
+#         print('Should shutdown system..', flush=True)
+#         shutdown()
 
 # execution
 ble_app = BleApplication()
@@ -167,17 +188,23 @@ ble_adv = WeatherStationAdvertisement(0)
 ble_adv.register()
 
 timer_update = RepeatedTimer(DELAY_WEATHER_REQUEST, updateWeather)
-timer_system = RepeatedTimer(DELAY_DETECT_MANUAL_SHUTDOWN, shouldShutdown)
+#timer_system = RepeatedTimer(DELAY_DETECT_MANUAL_SHUTDOWN, shouldShutdown)
 
 try:
     print('GATT application running')
     fetchIpAddress()
+    
     myThread = threading.Thread(target=ble_app.run)
     myThread.daemon = True
     myThread.start()
     #ble_app.run()
     print("Configuring UI")
     configUI()
+    contID=getControllerID()
+    img = qrcode.make(contID)
+    type(img) 
+    img.save(f'qr.png')
+    setQRCode(contID)
     print('running UI')
     while 1:
         totalTimeElapsed="Total TIME Elapsed"
@@ -189,7 +216,10 @@ try:
         ypr=ble_app.services[WEATHER_SERVICE_INDEX].get_ypr()
         latlng=ble_app.services[WEATHER_SERVICE_INDEX].get_latlng()
 
-        mainUI(totalTimeElapsed,strokesPM,driveTime,avgForce,peakForce,dragFactor,ypr,latlng)
+        mainUI(totalTimeElapsed,strokesPM,driveTime,avgForce,peakForce,dragFactor,ypr,latlng,widgetsPos[getCurPos()])
+        
+        
+        
 except KeyboardInterrupt:
     ble_app.quit()
     pass
