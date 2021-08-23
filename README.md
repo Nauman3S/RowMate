@@ -8,7 +8,7 @@
 <div align="center">
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
+
 
 </div>
 
@@ -69,7 +69,7 @@ A step by step series that covers how to get the Firmware and App running
 
 * ![R2](artwork/r2_2.jpg)
 
-### Configuring Raspberry Pi
+### Configuring Raspberry Pi and Running the UI
   1.  Copy Firmware folder to the desktop of your Raspberry Pi, open the terminal of your Raspberry Pi and execute the following commands
 
   - ```sudo apt-get update```
@@ -120,6 +120,12 @@ A step by step series that covers how to get the Firmware and App running
 
 `App/RowMate/RowMateApp/build/app/outputs/apk/release/`
 
+1.  Install the RowMate App
+2.  Open the app and it will ask for the Bluetooth and Location premissons. Turn on your smartphone's location and bluetooth and allow the permissions in the app.
+3.  Run the Firmware on the Raspberry Pi as explained in the 'Configuring Raspberry Pi and Running the UI' section above.
+4.  On the UI, move the cursor by pressing Up and Down buttons and once the cursor is on 'Connect to App' button, press Enter button and it will display a QR Code.
+2.  On your smartphone app click on 'Scan and Connect' button and scan the QR Code being displayed on your screen connected with the Raspberry Pi. The RowMate app will connect to the Raspberry Pi and it is now ready to be used.
+
 ### Screenshots of App
 
 * Here are some screenshots of the RowMate smartphone app
@@ -130,7 +136,10 @@ A step by step series that covers how to get the Firmware and App running
 ![SCR4](artwork/scr4.jpg)
 
 
+## Demo Video
 
+  
+  - [Demo Video](https://youtu.be/v5-WBKudcoc) - RowMate Demo Video
 ## ⛏️ Built Using <a name = "built_using"></a>
 
 - [Python3](https://www.python.org/) - Raspberry Pi FW
