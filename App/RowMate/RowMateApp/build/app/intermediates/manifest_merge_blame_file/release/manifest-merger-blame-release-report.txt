@@ -1,0 +1,165 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.rowmate"
+4    android:versionCode="4001"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="19"
+8-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="28" />
+9-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.BLUETOOTH" />
+11-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:4:5-68
+11-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:4:22-65
+12    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+12-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:5:5-74
+12-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:5:22-71
+13    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+13-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:6:5-80
+13-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:6:22-78
+14    <uses-permission android:name="android.permission.CAMERA" />
+14-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:7:5-65
+14-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:7:22-62
+15    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+15-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:8:5-80
+15-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:8:22-78
+16    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+16-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:9:5-79
+16-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:9:22-77
+17    <uses-permission android:name="android.permission.VIBRATE" />
+17-->[:qrscan] /run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/library_manifest/release/AndroidManifest.xml:8:5-66
+17-->[:qrscan] /run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/library_manifest/release/AndroidManifest.xml:8:22-63
+18    <uses-permission android:name="android.permission.FLASHLIGHT" />
+18-->[:qrscan] /run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/library_manifest/release/AndroidManifest.xml:9:5-69
+18-->[:qrscan] /run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/library_manifest/release/AndroidManifest.xml:9:22-66
+19
+20    <uses-feature android:name="android.hardware.camera" />
+20-->[:qrscan] /run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/library_manifest/release/AndroidManifest.xml:11:5-60
+20-->[:qrscan] /run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/library_manifest/release/AndroidManifest.xml:11:19-57
+21    <uses-feature android:name="android.hardware.camera.autofocus" />
+21-->[:qrscan] /run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/library_manifest/release/AndroidManifest.xml:12:5-70
+21-->[:qrscan] /run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/library_manifest/release/AndroidManifest.xml:12:19-67
+22
+23    <uses-permission android:name="android.permission.WAKE_LOCK" />
+23-->[:qrscan] /run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/library_manifest/release/AndroidManifest.xml:14:5-68
+23-->[:qrscan] /run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/library_manifest/release/AndroidManifest.xml:14:22-65
+24    <uses-permission android:name="android.permission.INTERNET" />
+24-->[:qrscan] /run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/library_manifest/release/AndroidManifest.xml:17:5-67
+24-->[:qrscan] /run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/library_manifest/release/AndroidManifest.xml:17:22-64
+25    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+25-->[:flutter_blue] /run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/flutter_blue/intermediates/library_manifest/release/AndroidManifest.xml:9:5-79
+25-->[:flutter_blue] /run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/flutter_blue/intermediates/library_manifest/release/AndroidManifest.xml:9:22-76
+26
+27    <application
+27-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:11:4-49:19
+28        android:allowBackup="true"
+28-->[:qrscan] /run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/library_manifest/release/AndroidManifest.xml:20:9-35
+29        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+29-->[androidx.core:core:1.1.0] /home/nauman/.gradle/caches/transforms-2/files-2.1/a528b13ac93e64cafa3d0480e2c93207/core-1.1.0/AndroidManifest.xml:24:18-86
+30        android:configChanges="orientation|keyboardHidden"
+30-->[:qrscan] /run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/library_manifest/release/AndroidManifest.xml:21:9-59
+31        android:icon="@mipmap/launcher_icon"
+31-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:14:9-45
+32        android:label="RowMate App"
+32-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:12:9-36
+33        android:screenOrientation="portrait"
+33-->[:qrscan] /run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/library_manifest/release/AndroidManifest.xml:23:9-45
+34        android:supportsRtl="true"
+34-->[:qrscan] /run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/library_manifest/release/AndroidManifest.xml:24:9-35
+35        android:theme="@style/Theme.AppCompat.NoActionBar"
+35-->[:qrscan] /run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/library_manifest/release/AndroidManifest.xml:25:9-59
+36        android:windowSoftInputMode="stateAlwaysHidden" >
+36-->[:qrscan] /run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/library_manifest/release/AndroidManifest.xml:26:9-56
+37        <activity
+37-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:15:9-43:20
+38            android:name="com.example.rowmate.MainActivity"
+38-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:16:13-41
+39            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+39-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:19:13-163
+40            android:hardwareAccelerated="true"
+40-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:20:13-47
+41            android:launchMode="singleTop"
+41-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:17:13-43
+42            android:theme="@style/LaunchTheme"
+42-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:18:13-47
+43            android:windowSoftInputMode="adjustResize" >
+43-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:21:13-55
+44
+45            <!--
+46                 Specifies an Android theme to apply to this Activity as soon as
+47                 the Android process has started. This theme is visible to the user
+48                 while the Flutter UI initializes. After that, this theme continues
+49                 to determine the Window background behind the Flutter UI.
+50            -->
+51            <meta-data
+51-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:26:13-29:17
+52                android:name="io.flutter.embedding.android.NormalTheme"
+52-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:27:15-70
+53                android:resource="@style/NormalTheme" />
+53-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:28:15-52
+54            <!--
+55                 Displays an Android View that continues showing the launch screen
+56                 Drawable until Flutter paints its first frame, then this splash
+57                 screen fades out. A splash screen is useful to avoid any visual
+58                 gap between the end of Android's launch screen and the painting of
+59                 Flutter's first frame.
+60            -->
+61            <meta-data
+61-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:35:13-38:17
+62                android:name="io.flutter.embedding.android.SplashScreenDrawable"
+62-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:36:15-79
+63                android:resource="@drawable/launch_background" />
+63-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:37:15-61
+64
+65            <intent-filter>
+65-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:39:13-42:29
+66                <action android:name="android.intent.action.MAIN" />
+66-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:40:17-68
+66-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:40:25-66
+67
+68                <category android:name="android.intent.category.LAUNCHER" />
+68-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:41:17-76
+68-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:41:27-74
+69            </intent-filter>
+70        </activity>
+71        <!--
+72             Don't delete the meta-data below.
+73             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+74        -->
+75        <meta-data
+75-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:46:9-48:33
+76            android:name="flutterEmbedding"
+76-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:47:13-44
+77            android:value="2" />
+77-->/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/android/app/src/main/AndroidManifest.xml:48:13-30
+78
+79        <activity android:name="com.shinow.qrscan.SecondActivity" />
+79-->[:qrscan] /run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/library_manifest/release/AndroidManifest.xml:27:9-69
+79-->[:qrscan] /run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/library_manifest/release/AndroidManifest.xml:27:19-66
+80
+81        <provider
+81-->[com.squareup.picasso:picasso:2.71828] /home/nauman/.gradle/caches/transforms-2/files-2.1/7d20db4ef58dff09a5850e85828b014f/jetified-picasso-2.71828/AndroidManifest.xml:8:9-11:40
+82            android:name="com.squareup.picasso.PicassoProvider"
+82-->[com.squareup.picasso:picasso:2.71828] /home/nauman/.gradle/caches/transforms-2/files-2.1/7d20db4ef58dff09a5850e85828b014f/jetified-picasso-2.71828/AndroidManifest.xml:9:13-64
+83            android:authorities="com.example.rowmate.com.squareup.picasso"
+83-->[com.squareup.picasso:picasso:2.71828] /home/nauman/.gradle/caches/transforms-2/files-2.1/7d20db4ef58dff09a5850e85828b014f/jetified-picasso-2.71828/AndroidManifest.xml:10:13-72
+84            android:exported="false" />
+84-->[com.squareup.picasso:picasso:2.71828] /home/nauman/.gradle/caches/transforms-2/files-2.1/7d20db4ef58dff09a5850e85828b014f/jetified-picasso-2.71828/AndroidManifest.xml:11:13-37
+85
+86        <activity
+86-->[com.github.leyan95:android-zxingLibrary:0.1.2-PRE] /home/nauman/.gradle/caches/transforms-2/files-2.1/b4b88143c9cc2b7c07e4c07a45b4f810/android-zxingLibrary-0.1.2-PRE/AndroidManifest.xml:14:9-19:63
+87            android:name="com.uuzuche.lib_zxing.activity.CaptureActivity"
+87-->[com.github.leyan95:android-zxingLibrary:0.1.2-PRE] /home/nauman/.gradle/caches/transforms-2/files-2.1/b4b88143c9cc2b7c07e4c07a45b4f810/android-zxingLibrary-0.1.2-PRE/AndroidManifest.xml:15:13-74
+88            android:configChanges="orientation|keyboardHidden"
+88-->[com.github.leyan95:android-zxingLibrary:0.1.2-PRE] /home/nauman/.gradle/caches/transforms-2/files-2.1/b4b88143c9cc2b7c07e4c07a45b4f810/android-zxingLibrary-0.1.2-PRE/AndroidManifest.xml:16:13-63
+89            android:screenOrientation="portrait"
+89-->[com.github.leyan95:android-zxingLibrary:0.1.2-PRE] /home/nauman/.gradle/caches/transforms-2/files-2.1/b4b88143c9cc2b7c07e4c07a45b4f810/android-zxingLibrary-0.1.2-PRE/AndroidManifest.xml:17:13-49
+90            android:theme="@style/Theme.AppCompat.NoActionBar"
+90-->[com.github.leyan95:android-zxingLibrary:0.1.2-PRE] /home/nauman/.gradle/caches/transforms-2/files-2.1/b4b88143c9cc2b7c07e4c07a45b4f810/android-zxingLibrary-0.1.2-PRE/AndroidManifest.xml:18:13-63
+91            android:windowSoftInputMode="stateAlwaysHidden" />
+91-->[com.github.leyan95:android-zxingLibrary:0.1.2-PRE] /home/nauman/.gradle/caches/transforms-2/files-2.1/b4b88143c9cc2b7c07e4c07a45b4f810/android-zxingLibrary-0.1.2-PRE/AndroidManifest.xml:19:13-60
+92    </application>
+93
+94</manifest>

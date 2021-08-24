@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/res/merged/release/mipmap-hdpi-v4/ic_back.png",
+        "source": "/home/nauman/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/qrscan-0.3.2/android/src/main/res/mipmap-hdpi/ic_back.png"
+    },
+    {
+        "merged": "/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/res/merged/release/mipmap-hdpi-v4/ic_launcher.png",
+        "source": "/home/nauman/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/qrscan-0.3.2/android/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/res/merged/release/mipmap-hdpi-v4/ic_light.png",
+        "source": "/home/nauman/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/qrscan-0.3.2/android/src/main/res/mipmap-hdpi/ic_light.png"
+    },
+    {
+        "merged": "/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/res/merged/release/mipmap-hdpi-v4/ic_photo.png",
+        "source": "/home/nauman/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/qrscan-0.3.2/android/src/main/res/mipmap-hdpi/ic_photo.png"
+    }
+]

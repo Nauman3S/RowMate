@@ -1,0 +1,4 @@
+#Mon Aug 23 14:44:16 PKT 2021
+base.0=/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/app/intermediates/dex/release/mergeDexRelease/out/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

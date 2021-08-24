@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/res/merged/release/color-v23/abc_color_highlight_material.xml",
+        "source": "/home/nauman/.gradle/caches/transforms-2/files-2.1/7def8d6c3751559765cf68c2d5a2dddd/appcompat-1.1.0/res/color-v23/abc_color_highlight_material.xml"
+    },
+    {
+        "merged": "/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/res/merged/release/color-v23/abc_tint_btn_checkable.xml",
+        "source": "/home/nauman/.gradle/caches/transforms-2/files-2.1/7def8d6c3751559765cf68c2d5a2dddd/appcompat-1.1.0/res/color-v23/abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/res/merged/release/color-v23/abc_tint_switch_track.xml",
+        "source": "/home/nauman/.gradle/caches/transforms-2/files-2.1/7def8d6c3751559765cf68c2d5a2dddd/appcompat-1.1.0/res/color-v23/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/res/merged/release/color-v23/abc_btn_colored_borderless_text_material.xml",
+        "source": "/home/nauman/.gradle/caches/transforms-2/files-2.1/7def8d6c3751559765cf68c2d5a2dddd/appcompat-1.1.0/res/color-v23/abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/res/merged/release/color-v23/abc_tint_default.xml",
+        "source": "/home/nauman/.gradle/caches/transforms-2/files-2.1/7def8d6c3751559765cf68c2d5a2dddd/appcompat-1.1.0/res/color-v23/abc_tint_default.xml"
+    },
+    {
+        "merged": "/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/res/merged/release/color-v23/design_tint_password_toggle.xml",
+        "source": "/home/nauman/.gradle/caches/transforms-2/files-2.1/db2388f0fe5e05a7a168e5a9c11e912f/material-1.0.0/res/color-v23/design_tint_password_toggle.xml"
+    },
+    {
+        "merged": "/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/res/merged/release/color-v23/abc_tint_edittext.xml",
+        "source": "/home/nauman/.gradle/caches/transforms-2/files-2.1/7def8d6c3751559765cf68c2d5a2dddd/appcompat-1.1.0/res/color-v23/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/res/merged/release/color-v23/abc_tint_spinner.xml",
+        "source": "/home/nauman/.gradle/caches/transforms-2/files-2.1/7def8d6c3751559765cf68c2d5a2dddd/appcompat-1.1.0/res/color-v23/abc_tint_spinner.xml"
+    },
+    {
+        "merged": "/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/res/merged/release/color-v23/abc_tint_seek_thumb.xml",
+        "source": "/home/nauman/.gradle/caches/transforms-2/files-2.1/7def8d6c3751559765cf68c2d5a2dddd/appcompat-1.1.0/res/color-v23/abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "/run/media/nauman/E624AA3A24AA0E1D/data/Windows/Per/IoT19/App/RowMate/RowMateApp/build/qrscan/intermediates/res/merged/release/color-v23/abc_btn_colored_text_material.xml",
+        "source": "/home/nauman/.gradle/caches/transforms-2/files-2.1/7def8d6c3751559765cf68c2d5a2dddd/appcompat-1.1.0/res/color-v23/abc_btn_colored_text_material.xml"
+    }
+]
