@@ -118,7 +118,8 @@ A step by step series that covers how to get the Firmware and App running
 
 * Compiled App is availble in the following directory of this repo
 
-`App/RowMate/RowMateApp/build/app/outputs/apk/release/`
+`App/RowMate/RowMateApp/build/app/outputs/apk/release/app-arm64-v8a-release.apk`
+`Note: the arm64 is a default version but if you are using tablet or any other device you might want to check other apk.`
 
 1.  Install the RowMate App
 2.  Open the app and it will ask for the Bluetooth and Location premissons. Turn on your smartphone's location and bluetooth and allow the permissions in the app.
